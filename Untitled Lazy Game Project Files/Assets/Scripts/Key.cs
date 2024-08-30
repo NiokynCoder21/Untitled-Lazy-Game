@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class Key : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject circle;
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (KeyManager.Instance.currentAmount > 0)
+            {
+                KeyManager.Instance.LossKey(-1);
+                Destroy(circle);
+            }
+        }
     }
 }
