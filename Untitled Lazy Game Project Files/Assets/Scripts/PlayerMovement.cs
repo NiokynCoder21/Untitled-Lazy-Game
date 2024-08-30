@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveForce; //move the player to the right in air and ground
     public float upForce; //move the player to the left in air and ground
     public float sideForce;
+    public float sideUPForce;
 
     public SpriteRenderer spriteRenderer;
 
@@ -56,12 +57,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isWallLeft == true)
         {
-            rb.AddForce(-orientation.right * sideForce, ForceMode2D.Impulse);
+            rb.AddForce(orientation.right * sideForce, ForceMode2D.Impulse);
+            rb.AddForce(orientation.up * sideUPForce, ForceMode2D.Impulse);
         }
 
         if(isWallRight == true)
         {
-            rb.AddForce(orientation.right * sideForce, ForceMode2D.Impulse);
+            rb.AddForce(-orientation.right * sideForce, ForceMode2D.Impulse);
+            rb.AddForce(orientation.up * sideUPForce, ForceMode2D.Impulse);
         }
     }
 

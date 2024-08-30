@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class RightCheck : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public PlayerMovement playerMovement;
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.gameObject.CompareTag("Wall")) //if the object does have wall tag, this to ensure it is not wall running
+        {
+            playerMovement.SetRightWall(true); //this is set grounded to true meaning the player is grounded
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        
+        if (collision.gameObject.CompareTag("Wall")) //if the object does have wall tag, this to ensure it is not wall running
+        {
+            playerMovement.SetRightWall(false); //this is set grounded to false meaning the player is grounded                                         
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Wall")) //if the object does have wall tag, this to ensure it is not wall running
+        {
+            playerMovement.SetRightWall(true);  //this is set grounded to true meaning the player is grounded
+        }
     }
 }
