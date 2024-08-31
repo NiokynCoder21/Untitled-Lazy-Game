@@ -13,7 +13,7 @@ public class KeyManager : MonoBehaviour
     public int currentIndex = 0;
     private TMP_Text lastEnabledText;
 
-    private void Awake()
+   /* private void Awake()
     {
         if (Instance == null)
         {
@@ -24,15 +24,22 @@ public class KeyManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
+    }*/
 
     private void Start()
     {
         currentAmount = startAmount;
+        IntilizeTextObjects();
+    }
 
-        foreach (var textObject in textObjects)
+    public void IntilizeTextObjects()
+    {
+        if (textObjects != null)
         {
-            textObject.gameObject.SetActive(false);
+            foreach (var textObject in textObjects)
+            {
+                textObject.gameObject.SetActive(false);
+            }
         }
     }
 
@@ -48,8 +55,14 @@ public class KeyManager : MonoBehaviour
             }
 
             lastEnabledText = textObjects[currentIndex];
-            textObjects[currentIndex].gameObject.SetActive(true);
-            currentIndex++;
+
+            if (textObjects[currentIndex] != null)
+            {
+                textObjects[currentIndex].gameObject.SetActive(true);
+                currentIndex++;
+            }
+           
+            
         }
         
     }

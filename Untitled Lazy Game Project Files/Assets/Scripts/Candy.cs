@@ -2,23 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Key : MonoBehaviour
+public class Candy : MonoBehaviour
 {
-    public GameObject circle; //the key gameObject
+    public GameObject candy; //the key gameObject
     public KeyManager keyManager;
+    public PlayerEnegy playerEnegy;
+    public int energyBoost;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player")) //if collided game object has player tag
         {
-
-            if (keyManager != null)
+            if (playerEnegy != null)
             {
-                if (keyManager.currentAmount > 0)
+                if (playerEnegy.currentEnergy < 200)
                 {
-                    keyManager.LossKey(-1);
-                    circle.gameObject.SetActive(false);
+                    playerEnegy.GainEnergy(energyBoost);
+                    Destroy(candy);
                 }
+               
             }
         }
     }

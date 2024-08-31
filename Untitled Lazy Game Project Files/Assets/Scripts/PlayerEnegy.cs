@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerEnegy : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerEnegy : MonoBehaviour
     public float currentEnergy; //current health in the game
     public HealthBars healthBar; //reference to the healthBar game object
     public GameManager gameManager;
+    public TMP_Text[] textObjects;
 
     void Start()
     {
@@ -27,6 +29,12 @@ public class PlayerEnegy : MonoBehaviour
         {
             SceneManager.LoadScene("SampleScene", LoadSceneMode.Single); //load the game over screen
         }
+    }
+
+    public void GainEnergy(float energy)
+    {
+        currentEnergy += energy;
+        healthBar.SetHealth(currentEnergy);
     }
 
     //Brakeys.(2020, Febuary 9). How to make a Health bar in Unity![Video] https://www.youtube.com/watch?v=BLfNP4Sc_iA&list=PLt1E2jJc5nDj6KQi6BVJElz3vqFmg-B8I&index=4 
