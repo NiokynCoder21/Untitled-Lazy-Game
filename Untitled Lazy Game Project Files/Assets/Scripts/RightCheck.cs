@@ -8,25 +8,25 @@ public class RightCheck : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Wall")) //if the object does have wall tag, this to ensure it is not wall running
+        if (collision.gameObject.CompareTag("Wall")) //if collide with game object check if it has tag wall
         {
-            playerMovement.SetRightWall(true); //this is set grounded to true meaning the player is grounded
+            playerMovement.SetRightWall(true); //this is set rightWall to true meaning the player is touching the right wall
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Wall")) //if the object does have wall tag, this to ensure it is not wall running
+        if (collision.gameObject.CompareTag("Wall")) //if collide with game object check if it has tag wall
         {
-            playerMovement.SetRightWall(false); //this is set grounded to false meaning the player is grounded                                         
+            playerMovement.SetRightWall(false); //this is set rightWall to false meaning the player is not touching the right wall                                       
         }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Wall")) //if the object does have wall tag, this to ensure it is not wall running
+        if (collision.gameObject.CompareTag("Wall")) //if collide with game object check if it has tag wall
         {
-            playerMovement.SetRightWall(true);  //this is set grounded to true meaning the player is grounded
+            playerMovement.SetRightWall(true);  //this is set rightWall to true meaning the player is touching the right wall    
         }
     }
 }

@@ -4,29 +4,29 @@ using UnityEngine;
 
 public class LeftCheck : MonoBehaviour
 {
-    public PlayerMovement playerMovement;
+    public PlayerMovement playerMovement; //reference to the playermovement script
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Wall")) //if the object does have wall tag, this to ensure it is not wall running
+        if (collision.gameObject.CompareTag("Wall")) //if the object does have wall tag
         {
-            playerMovement.SetLeftWall(true); //this is set grounded to true meaning the player is grounded
+            playerMovement.SetLeftWall(true); //this is set leftWall to true meaning the player is tocuhing the left wall    
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Wall")) //if the object does have wall tag, this to ensure it is not wall running
+        if (collision.gameObject.CompareTag("Wall")) //if the object does have wall tag
         {
-            playerMovement.SetLeftWall(false); //this is set grounded to false meaning the player is grounded                                         
+            playerMovement.SetLeftWall(false); //this is set leftWall to false meaning the player is not tocuhing the left wall                                         
         }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Wall")) //if the object does have wall tag, this to ensure it is not wall running
+        if (collision.gameObject.CompareTag("Wall")) //if the object does have wall tag
         {
-            playerMovement.SetLeftWall(true);  //this is set grounded to true meaning the player is grounded
+            playerMovement.SetLeftWall(true);  //this is set leftWall to true meaning the player is tocuhing the left wall   
         }
     }
 }
