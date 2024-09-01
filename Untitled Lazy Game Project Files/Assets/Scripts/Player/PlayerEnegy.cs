@@ -10,7 +10,6 @@ public class PlayerEnegy : MonoBehaviour
     public float maxEnergy = 200; //max health in the game
     public float currentEnergy; //current health in the game
     public HealthBars healthBar; //reference to the healthBar game object
-    public GameManager gameManager;
     public TMP_Text[] textObjects;
 
     void Start()
