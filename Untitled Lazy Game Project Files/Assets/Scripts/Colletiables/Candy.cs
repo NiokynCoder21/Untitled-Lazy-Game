@@ -17,8 +17,8 @@ public class Candy : MonoBehaviour
             {
                 if (playerEnegy.currentEnergy < 200)
                 {
-                    playerEnegy.GainEnergy(energyBoost);
-                    Destroy(candy);
+                   playerEnegy.GainEnergy(energyBoost);
+                   Destroy(candy);
                 }
                
             }

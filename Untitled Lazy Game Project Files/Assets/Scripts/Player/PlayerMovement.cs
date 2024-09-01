@@ -18,7 +18,8 @@ public class PlayerMovement : MonoBehaviour
     public float sideUPForce; //this is how up force is aplied to simulate wall jumping
 
     public PlayerEnegy playerEnegy;
-    public float wallEnergy;
+    public float wallEnergy; //this is how much energy the player loses when wall jumping
+    public AudioClip jumpSound; //the sound of the player jumping
 
     void Update()
     {
@@ -43,19 +44,27 @@ public class PlayerMovement : MonoBehaviour
             {
                 WallJump(); //call the wall jump function
 
-                if (playerEnegy != null)
+                if (playerEnegy != null) //if the script is not equal to null
                 {
-                    playerEnegy.LossEnergy(wallEnergy);
+                    playerEnegy.LossEnergy(wallEnergy); //this calls the loss energy function from the player energy script
                 }
                 
             }
         }
+    }
 
+    public void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked; //locks the cursor when the game begins
+        Cursor.visible = false; //ensure the cursor is not visible 
     }
 
     void Jump()
     {
         rb.AddForce(orientation.up * upForce, ForceMode2D.Impulse); //this adds upword force 
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.clip = jumpSound; //assigns the sound to audio source
+        audio.Play(); //plays the sound 
     }
 
     void WallJump()
@@ -64,12 +73,18 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.AddForce(orientation.right * sideForce, ForceMode2D.Impulse); //this adds sideforce to the ride of the player
             rb.AddForce(orientation.up * sideUPForce, ForceMode2D.Impulse); //this adds upward force to the player
+            AudioSource audio = GetComponent<AudioSource>();
+            audio.clip = jumpSound; //assigns the sound to audio source
+            audio.Play(); //plays the sound 
         }
 
         if(isWallRight == true) //if the player is touching the right wall
         {
             rb.AddForce(-orientation.right * sideForce, ForceMode2D.Impulse); //this adds sideforce to the ride of the player
             rb.AddForce(orientation.up * sideUPForce, ForceMode2D.Impulse); //this adds upward force to the player
+            AudioSource audio = GetComponent<AudioSource>();
+            audio.clip = jumpSound; //assigns the sound to audio source
+            audio.Play(); //plays the sound  
         }
     }
 

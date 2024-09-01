@@ -13,19 +13,6 @@ public class KeyManager : MonoBehaviour
     public int currentIndex = 0;
     private TMP_Text lastEnabledText;
 
-   /* private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }*/
-
     private void Start()
     {
         currentAmount = startAmount;
