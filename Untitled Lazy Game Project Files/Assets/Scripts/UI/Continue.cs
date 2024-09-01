@@ -15,11 +15,6 @@ public class Continue : MonoBehaviour
         SceneManager.LoadScene("TutorialScreen", LoadSceneMode.Single); //load the tutorial scence
     }
 
-    public void LoadMainMenu()
-    {
-        SceneManager.LoadScene("StartScreen", LoadSceneMode.Single); //load the start scence
-    }
-
     public void ExitGame()
     {
         Application.Quit(); // Exit the application

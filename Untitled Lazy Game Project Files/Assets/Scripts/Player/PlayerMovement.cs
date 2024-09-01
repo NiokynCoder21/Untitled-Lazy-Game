@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public float sideForce; //this is how side ways is aplied to simulate wall jumping
     public float sideUPForce; //this is how up force is aplied to simulate wall jumping
 
-    public PlayerEnegy playerEnegy;
+    public PlayerEnegy playerEnegy; //reference to the player energy script
     public float wallEnergy; //this is how much energy the player loses when wall jumping
     public AudioClip jumpSound; //the sound of the player jumping
 

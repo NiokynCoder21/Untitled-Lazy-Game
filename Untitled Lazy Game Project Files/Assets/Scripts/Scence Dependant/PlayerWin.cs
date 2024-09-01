@@ -6,8 +6,8 @@ using TMPro;
 
 public class PlayerWin : MonoBehaviour
 {
-    public KeyManager keyManager;
-    public TMP_Text notEngoughKeys;
+    public KeyManager keyManager; //reference to keymanager script
+    public TMP_Text notEngoughKeys; //text game object
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -16,7 +16,7 @@ public class PlayerWin : MonoBehaviour
 
             if (keyManager != null)
             {
-                if (keyManager.currentAmount == 0)
+                if (keyManager.currentAmount == 0) //if player has all the keys 
                 {
                     SceneManager.LoadScene("WinScreen", LoadSceneMode.Single); //load the tutorial scence
                 }
